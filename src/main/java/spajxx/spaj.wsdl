@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webServices.dataInterface.thunisoft.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SpAjServicesImpl" targetNamespace="http://webServices.dataInterface.thunisoft.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webServices.dataInterface.thunisoft.com/" elementFormDefault="unqualified" targetNamespace="http://webServices.dataInterface.thunisoft.com/" version="1.0">
+
+  <xs:element name="getAllNDH" type="tns:getAllNDH"/>
+
+  <xs:element name="getAllNDHResponse" type="tns:getAllNDHResponse"/>
+
+  <xs:element name="getDataByNDH" type="tns:getDataByNDH"/>
+
+  <xs:element name="getDataByNDHResponse" type="tns:getDataByNDHResponse"/>
+
+  <xs:complexType name="getAllNDH">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllNDHResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDataByNDH">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ndh" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDataByNDHResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllNDH">
+    <wsdl:part element="tns:getAllNDH" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataByNDH">
+    <wsdl:part element="tns:getDataByNDH" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDataByNDHResponse">
+    <wsdl:part element="tns:getDataByNDHResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllNDHResponse">
+    <wsdl:part element="tns:getAllNDHResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SpAjServices">
+    <wsdl:operation name="getAllNDH">
+      <wsdl:input message="tns:getAllNDH" name="getAllNDH">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllNDHResponse" name="getAllNDHResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataByNDH">
+      <wsdl:input message="tns:getDataByNDH" name="getDataByNDH">
+    </wsdl:input>
+      <wsdl:output message="tns:getDataByNDHResponse" name="getDataByNDHResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SpAjServicesImplSoapBinding" type="tns:SpAjServices">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllNDH">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllNDH">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllNDHResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDataByNDH">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDataByNDH">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDataByNDHResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SpAjServicesImpl">
+    <wsdl:port binding="tns:SpAjServicesImplSoapBinding" name="SpAjServicesImplPort">
+      <soap:address location="http://11.203.54.130:8085/dataInterface/data/spaj"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
